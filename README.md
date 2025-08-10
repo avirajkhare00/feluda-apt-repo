@@ -7,24 +7,20 @@ This repository contains the APT repository for installing Feluda on Debian-base
 ### 1. Add the GPG key
 
 ```bash
-# Get the GPG key
-curl -fsSL https://raw.githubusercontent.com/avirajkhare00/feluda-apt-repo/master/Release.gpg | sudo gpg --dearmor -o /usr/share/keyrings/feluda-archive-keyring.gpg
+curl -fsSL https://raw.githubusercontent.com/avirajkhare00/feluda-apt-repo/main/Release.gpg | sudo gpg --dearmor -o /usr/share/keyrings/feluda-archive-keyring.gpg
 ```
 
 ### 2. Add the repository
 
 ```bash
-# Add the repository to your sources
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/feluda-archive-keyring.gpg] https://raw.githubusercontent.com/avirajkhare00/feluda-apt-repo/master bionic main" | sudo tee /etc/apt/sources.list.d/feluda.list
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/feluda-archive-keyring.gpg] https://raw.githubusercontent.com/avirajkhare00/feluda-apt-repo/main bionic main" | sudo tee /etc/apt/sources.list.d/feluda.list
 ```
 
 ### 3. Update and install
 
 ```bash
-# Update package list
 sudo apt update
 
-# Install Feluda
 sudo apt install feluda
 ```
 
