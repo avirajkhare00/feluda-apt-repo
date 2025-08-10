@@ -37,7 +37,7 @@ Once the workflow completes, test the installation on a Debian/Ubuntu system usi
 
 ```bash
 # Download and add the GPG key
-curl -fsSL https://raw.githubusercontent.com/avirajkhare00/feluda-apt-repo/main/dists/bionic/Release.gpg | sudo gpg --dearmor -o /usr/share/keyrings/feluda-archive-keyring.gpg
+curl -fsSL https://raw.githubusercontent.com/avirajkhare00/feluda-apt-repo/blob/main/dists/bionic/Release.gpg | sudo gpg --dearmor -o /usr/share/keyrings/feluda-archive-keyring.gpg
 ```
 
 **Note**: The GPG key will be available after the first package is built and the repository is initialized.
@@ -46,7 +46,7 @@ curl -fsSL https://raw.githubusercontent.com/avirajkhare00/feluda-apt-repo/main/
 
 ```bash
 # Add the repository to your sources
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/feluda-archive-keyring.gpg] https://raw.githubusercontent.com/avirajkhare00/feluda-apt-repo/main bionic main" | sudo tee /etc/apt/sources.list.d/feluda.list
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/feluda-archive-keyring.gpg] https://raw.githubusercontent.com/avirajkhare00/feluda-apt-repo/blob/main bionic main" | sudo tee /etc/apt/sources.list.d/feluda.list
 ```
 
 ### 3. Update and install
@@ -78,7 +78,7 @@ If you prefer to install manually, you can download the `.deb` package directly:
 
 ```bash
 # Download the latest version
-wget https://raw.githubusercontent.com/avirajkhare00/feluda-apt-repo/main/pool/main/f/feluda/feluda_1.9.8_amd64.deb
+wget https://raw.githubusercontent.com/avirajkhare00/feluda-apt-repo/blob/main/pool/main/f/feluda/feluda_1.9.8_amd64.deb
 
 # Install the package
 sudo dpkg -i feluda_1.9.8_amd64.deb
