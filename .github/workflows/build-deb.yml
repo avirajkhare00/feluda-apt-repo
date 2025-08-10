@@ -49,9 +49,18 @@ jobs:
 
       - name: Setup GPG
         run: |
-          echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --import
-          echo "${{ secrets.GPG_PASSPHRASE }}" | gpg --batch --yes --passphrase-fd 0 --export-secret-key > private.key
-          gpg --import private.key
+          if [ -n "${{ secrets.GPG_PRIVATE_KEY }}" ]; then
+            echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --import
+            if [ -n "${{ secrets.GPG_PASSPHRASE }}" ]; then
+              echo "${{ secrets.GPG_PASSPHRASE }}" | gpg --batch --yes --passphrase-fd 0 --export-secret-key > private.key
+              gpg --import private.key
+            fi
+            echo "✅ GPG key imported successfully"
+            gpg --list-keys
+          else
+            echo "⚠️ No GPG_PRIVATE_KEY secret found - repository will not be signed"
+            echo "Creating unsigned repository..."
+          fi
 
       - name: Create DEB package
         run: |
@@ -89,7 +98,19 @@ jobs:
       - name: Update APT repository
         run: |
           cd apt-repo
-          reprepro -V --section utils --component main --priority optional includedeb bionic incoming/feluda_${{ github.event.inputs.version || '1.9.8' }}_amd64.deb
+          echo "🔍 Checking GPG setup..."
+          gpg --list-keys || echo "No GPG keys found"
+          
+          if [ -n "${{ secrets.GPG_PRIVATE_KEY }}" ]; then
+            echo "🔐 Building signed repository..."
+            reprepro -V --section utils --component main --priority optional includedeb bionic incoming/feluda_${{ github.event.inputs.version || '1.9.8' }}_amd64.deb
+          else
+            echo "⚠️ Building unsigned repository..."
+            reprepro -V --section utils --component main --priority optional --nosign includedeb bionic incoming/feluda_${{ github.event.inputs.version || '1.9.8' }}_amd64.deb
+          fi
+          
+          echo "📁 Repository structure after build:"
+          find . -name "*.gpg" -o -name "Release*" | head -10
 
       - name: Commit and push changes
         run: |
