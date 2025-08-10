@@ -121,7 +121,7 @@ jobs:
           git commit -m "Add Feluda v${{ github.event.inputs.version || '1.9.8' }} DEB package"
           git remote set-url origin https://x-access-token:${{ secrets.REPO_ACCESS_TOKEN }}@github.com/${{ github.repository }}
           git push origin main
-          
+
       - name: Trigger GitHub Pages deployment
         run: |
           echo "✅ APT repository updated. GitHub Pages will be deployed automatically."
