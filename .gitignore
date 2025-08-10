@@ -18,9 +18,11 @@ conf/override.*
 *.dsc
 
 # GPG files
-*.gpg
 *.asc
 private.key
+
+# Allow Release.gpg files (needed for APT repository)
+!dists/*/Release.gpg
 
 # Build artifacts (but allow the final package)
 feluda_*_amd64/
