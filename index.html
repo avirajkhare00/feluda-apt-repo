@@ -59,18 +59,7 @@
   <div class="install-section">
     <h2>📦 Installation</h2>
 
-    <h3>Method 1: Import GPG Key from Keyserver</h3>
-    <pre><code># Import the specific GPG key
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F0AAB15F581EC98C
-
-# Add the repository
-echo "deb [arch=amd64] https://avirajkhare00.github.io/feluda-apt-repo/ bionic main" | sudo tee /etc/apt/sources.list.d/feluda.list
-
-# Update and install
-sudo apt update
-sudo apt install feluda</code></pre>
-
-    <h3>Method 2: Use Keyring (More Secure)</h3>
+    <h3>Secure Installation Method</h3>
     <pre><code># Download signature to keyring
 curl -fsSL https://avirajkhare00.github.io/feluda-apt-repo/dists/bionic/Release.gpg | sudo gpg --dearmor -o /usr/share/keyrings/feluda-archive-keyring.gpg
 
@@ -80,23 +69,6 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/feluda-archive-keyring.gpg] 
 # Update and install
 sudo apt update
 sudo apt install feluda</code></pre>
-
-    <h3>Method 3: Unsigned Repository (Quick Fix)</h3>
-    <pre><code># Add unsigned repository
-echo "deb [trusted=yes] https://avirajkhare00.github.io/feluda-apt-repo/ bionic main" | sudo tee /etc/apt/sources.list.d/feluda.list
-
-# Update and install
-sudo apt update
-sudo apt install feluda</code></pre>
-  </div>
-
-  <div class="warning">
-    <strong>⚠️ Troubleshooting:</strong>
-    <ul>
-      <li>If you get "NO_PUBKEY" errors, try Method 1 (keyserver import)</li>
-      <li>If keyserver import fails, use Method 3 (unsigned repository)</li>
-      <li>The repository is signed with GPG key: <code>F0AAB15F581EC98C</code></li>
-    </ul>
   </div>
 
   <h2>🚀 Usage</h2>
