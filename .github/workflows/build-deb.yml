@@ -100,7 +100,7 @@ jobs:
           cd apt-repo
           echo "🔍 Checking GPG setup..."
           gpg --list-keys || echo "No GPG keys found"
-          
+
           if [ -n "${{ secrets.GPG_PRIVATE_KEY }}" ]; then
             echo "🔐 Building signed repository..."
             reprepro -V --section utils --component main --priority optional includedeb bionic incoming/feluda_${{ github.event.inputs.version || '1.9.8' }}_amd64.deb
@@ -108,7 +108,7 @@ jobs:
             echo "⚠️ Building unsigned repository..."
             reprepro -V --section utils --component main --priority optional --nosign includedeb bionic incoming/feluda_${{ github.event.inputs.version || '1.9.8' }}_amd64.deb
           fi
-          
+
           echo "📁 Repository structure after build:"
           find . -name "*.gpg" -o -name "Release*" | head -10
 
