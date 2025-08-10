@@ -1,14 +1,19 @@
-# APT repository generated files
-dists/
-pool/
-db/
+# APT repository generated files (but allow the main repository structure)
+# dists/
+# pool/
+# db/
 conf/options
 conf/override.*
+
+# Allow APT repository structure
+!dists/
+!pool/
+!db/
 
 # Temporary files
 *.tmp
 *.temp
-*.deb
+# *.deb  # Allow .deb files in the repository
 *.changes
 *.dsc
 
@@ -17,8 +22,9 @@ conf/override.*
 *.asc
 private.key
 
-# Build artifacts
+# Build artifacts (but allow the final package)
 feluda_*_amd64/
+!pool/
 
 # OS generated files
 .DS_Store
