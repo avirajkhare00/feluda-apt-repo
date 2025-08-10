@@ -44,7 +44,7 @@ fi
 
 # Test 2: Check if GPG key is available
 echo "🔑 Testing GPG key availability..."
-if curl -s "$REPO_URL/Release.gpg" > /dev/null; then
+if curl -s "$REPO_URL/dists/bionic/Release.gpg" > /dev/null; then
     print_status "GPG key is available"
 else
     print_warning "GPG key not found - repository may not be signed"
@@ -96,7 +96,7 @@ echo "🎉 Installation test completed!"
 echo ""
 echo "📋 Summary:"
 echo "- Repository accessibility: ✅"
-echo "- GPG key availability: $(curl -s "$REPO_URL/Release.gpg" > /dev/null && echo "✅" || echo "⚠️")"
+echo "- GPG key availability: $(curl -s "$REPO_URL/dists/bionic/Release.gpg" > /dev/null && echo "✅" || echo "⚠️")"
 echo "- Package metadata: $(curl -s "$REPO_URL/dists/bionic/main/binary-amd64/Packages" > /dev/null && echo "✅" || echo "⚠️")"
 echo "- Package download: $(curl -s -L "$REPO_URL/pool/main/f/feluda/feluda_1.9.8_amd64.deb" > /dev/null && echo "✅" || echo "⚠️")"
 echo ""
