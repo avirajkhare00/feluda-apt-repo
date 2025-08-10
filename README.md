@@ -40,7 +40,18 @@ Once the workflow completes, test the installation on a Debian/Ubuntu system usi
 curl -fsSL https://raw.githubusercontent.com/avirajkhare00/feluda-apt-repo/main/dists/bionic/Release.gpg | sudo gpg --dearmor -o /usr/share/keyrings/feluda-archive-keyring.gpg
 ```
 
+**Alternative method** (if the above doesn't work):
+```bash
+# Import the GPG key directly
+curl -fsSL https://raw.githubusercontent.com/avirajkhare00/feluda-apt-repo/main/dists/bionic/Release.gpg | sudo apt-key add -
+```
+
 **Note**: The GPG key will be available after the first package is built and the repository is initialized.
+
+**Troubleshooting GPG issues**:
+If you get "NO_PUBKEY" errors, try these steps:
+1. First, try the alternative method above
+2. If that doesn't work, the repository might not be signed yet - use the unsigned installation method below
 
 ### 2. Add the repository
 
@@ -55,6 +66,22 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/feluda-archive-keyring.gpg] 
 sudo apt update
 
 sudo apt install feluda
+```
+
+### Alternative: Unsigned Repository (if GPG doesn't work)
+
+If you're having issues with GPG keys, you can use the unsigned repository:
+
+```bash
+# Add the repository without GPG verification
+echo "deb [trusted=yes] https://raw.githubusercontent.com/avirajkhare00/feluda-apt-repo/main bionic main" | sudo tee /etc/apt/sources.list.d/feluda.list
+
+# Update and install
+sudo apt update
+sudo apt install feluda
+```
+
+**Note**: This method is less secure but will work if GPG signing isn't set up yet.
 ```
 
 ## Usage
