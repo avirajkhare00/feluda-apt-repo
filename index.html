@@ -61,7 +61,8 @@
 
     <h3>Secure Installation Method</h3>
     <pre><code># Download signature to keyring
-curl -fsSL https://avirajkhare00.github.io/feluda-apt-repo/dists/bionic/Release.gpg | sudo gpg --dearmor -o /usr/share/keyrings/feluda-archive-keyring.gpg
+curl -fsSL https://avirajkhare00.github.io/feluda-apt-repo/public-key.gpg | sudo gpg --dearmor -o
+/usr/share/keyrings/feluda-archive-keyring.gpg
 
 # Add repository with keyring
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/feluda-archive-keyring.gpg] https://avirajkhare00.github.io/feluda-apt-repo/ bionic main" | sudo tee /etc/apt/sources.list.d/feluda.list
