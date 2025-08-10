@@ -1,0 +1,6 @@
+Archive: stable
+Component: main
+Origin: Feluda
+Label: Feluda CLI Tool
+Architecture: amd64
+Description: Feluda - A CLI tool to check dependency licenses

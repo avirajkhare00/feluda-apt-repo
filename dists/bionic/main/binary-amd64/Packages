@@ -1,0 +1,17 @@
+Package: feluda
+Version: 1.9.8
+Architecture: amd64
+Depends: libc6
+Maintainer: Feluda Team <feluda@example.com>
+Priority: optional
+Section: utils
+Filename: pool/main/f/feluda/feluda_1.9.8_amd64.deb
+Size: 3835932
+SHA256: 55794882bf8c2eba04fc432b951546986400742d7623881d8c66b779248fa193
+SHA1: bf0c5d9762596781ace035506a52ae6e9b5f2bb2
+MD5sum: 5ac21cca776ddba5b91e3956cab82fe0
+Description: A CLI tool to check dependency licenses
+ Feluda analyzes project dependencies, notes their licenses,
+ and flags any permissions that restrict personal or commercial usage
+ or are incompatible with your project's license.
+

@@ -1,0 +1,20 @@
+Origin: Feluda
+Label: Feluda CLI Tool
+Suite: stable
+Codename: bionic
+Date: Sun, 10 Aug 2025 05:10:30 UTC
+Architectures: amd64
+Components: main
+Description: Feluda - A CLI tool to check dependency licenses
+MD5Sum:
+ 3fa15a25b0cf133b05eb1716a481d4cb 607 main/binary-amd64/Packages
+ a28b7382d2ab5338c85b3bd0fc31c95d 433 main/binary-amd64/Packages.gz
+ 6032f58c40efbd9b43ddbd4c902525ff 152 main/binary-amd64/Release
+SHA1:
+ f8f4153f14b27c6d6e9637983e1600bed2c6af1c 607 main/binary-amd64/Packages
+ 529798c1c3e710d2a88279b69901f9ca676ebf75 433 main/binary-amd64/Packages.gz
+ dd13812777dc011bf04deaba78d6cce9d7ff1af1 152 main/binary-amd64/Release
+SHA256:
+ bedffe8612b94af66ec17d04b26ae1506ad63eff2e97753cad98cb348ac06169 607 main/binary-amd64/Packages
+ b878648d1d2ab72d31c030820f517e31849d927dfab8785eca57ff0702331b1f 433 main/binary-amd64/Packages.gz
+ 200bf34378610f3044ecf201a37ab066ef513d07b14b6a786650335c30bd82d9 152 main/binary-amd64/Release

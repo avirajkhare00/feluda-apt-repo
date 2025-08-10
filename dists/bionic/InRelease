@@ -1,0 +1,39 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Origin: Feluda
+Label: Feluda CLI Tool
+Suite: stable
+Codename: bionic
+Date: Sun, 10 Aug 2025 05:10:30 UTC
+Architectures: amd64
+Components: main
+Description: Feluda - A CLI tool to check dependency licenses
+MD5Sum:
+ 3fa15a25b0cf133b05eb1716a481d4cb 607 main/binary-amd64/Packages
+ a28b7382d2ab5338c85b3bd0fc31c95d 433 main/binary-amd64/Packages.gz
+ 6032f58c40efbd9b43ddbd4c902525ff 152 main/binary-amd64/Release
+SHA1:
+ f8f4153f14b27c6d6e9637983e1600bed2c6af1c 607 main/binary-amd64/Packages
+ 529798c1c3e710d2a88279b69901f9ca676ebf75 433 main/binary-amd64/Packages.gz
+ dd13812777dc011bf04deaba78d6cce9d7ff1af1 152 main/binary-amd64/Release
+SHA256:
+ bedffe8612b94af66ec17d04b26ae1506ad63eff2e97753cad98cb348ac06169 607 main/binary-amd64/Packages
+ b878648d1d2ab72d31c030820f517e31849d927dfab8785eca57ff0702331b1f 433 main/binary-amd64/Packages.gz
+ 200bf34378610f3044ecf201a37ab066ef513d07b14b6a786650335c30bd82d9 152 main/binary-amd64/Release
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEzjJnsxtV/z5PsiIG8KqxX1geyYwFAmiYKcYACgkQ8KqxX1ge
+yYyk2g//TpZECTW7HhSw7067zokpoBxg8gWpYLvemh/TQI+KfObm4IYxQsuW4Znq
+JY+fMpKZxIljnn4PVeaKJXAh60+9+gY2kAEUwCN/TSB+AejBVW7gm+n/SN5C9s46
+IzAgE5sJyQiwPUjbG9FSMT2MhtsfJM21octHlTG4zVpd7Wg9J1OU1rlSvXXstqDa
+ExuarCByZUZNHZJjJZetQtITdRRVaUO0wHaHfkE22UtzX19rm9KWiEpfqDtAbtXR
+yy0UMtwCA5pxF3F9l/BleWMWmuAQqYZrtnPm7bnch7MZ2zELC0rRIVPS9cgc0x+Z
+oU07zksTbJtWEK2WgwNFWRLH0aEIL55L5Zls81CCDCBRIvxBVezp9KIElqwrZS7I
+pyOX37rbd+0Xn1+iw3WjInplv4OsD+qTki7eU8uSEaJ33fmbti5gWrCOI5MTtbkX
+MJKldpF3N3OXNjiY+pwi9devVsdNlrzEVOCBgkAA6hA3Ycr3gx8FoGRvipXNhqRq
+QHru67RaHPz1F6Jnzm5xwYw9cW2MkBITQ3YD0JTiiW+8TLIoo3zNqmg9nZTtJW0+
+t7n8Ucig4g/mhgvQPrQWWMGdbUV3TY1Y2Acexc22tOknk2NElewGNSLKtlo3/Qp6
+o7U6zahIauGwn253dv55TZsSMJtVD59B1pIbP3UKTOaPwT5Q9kQ=
+=ZL6r
+-----END PGP SIGNATURE-----
