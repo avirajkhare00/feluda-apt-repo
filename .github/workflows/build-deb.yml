@@ -1,0 +1,97 @@
+name: Build and Publish DEB Package
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Feluda version to build (e.g., 1.9.8)'
+        required: true
+        default: 'latest'
+  repository_dispatch:
+    types: [feluda-release]
+
+jobs:
+  build-deb:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout APT repository
+        uses: actions/checkout@v4
+        with:
+          path: apt-repo
+
+      - name: Checkout Feluda source
+        uses: actions/checkout@v4
+        with:
+          repository: anistark/feluda
+          path: feluda-source
+
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+
+      - name: Build Feluda
+        run: |
+          cd feluda-source
+          cargo build --release
+          ls -la target/release/feluda
+
+      - name: Install reprepro
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y reprepro
+
+      - name: Setup GPG
+        run: |
+          echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --import
+          echo "${{ secrets.GPG_PASSPHRASE }}" | gpg --batch --yes --passphrase-fd 0 --export-secret-key > private.key
+          gpg --import private.key
+
+      - name: Create DEB package
+        run: |
+          cd apt-repo
+
+          # Create package structure
+          mkdir -p feluda_${{ github.event.inputs.version || '1.9.8' }}_amd64/DEBIAN
+          mkdir -p feluda_${{ github.event.inputs.version || '1.9.8' }}_amd64/usr/local/bin
+
+          # Copy binary
+          cp ../feluda-source/target/release/feluda feluda_${{ github.event.inputs.version || '1.9.8' }}_amd64/usr/local/bin/
+          chmod +x feluda_${{ github.event.inputs.version || '1.9.8' }}_amd64/usr/local/bin/feluda
+
+          # Create control file
+          cat > feluda_${{ github.event.inputs.version || '1.9.8' }}_amd64/DEBIAN/control << EOF
+          Package: feluda
+          Version: ${{ github.event.inputs.version || '1.9.8' }}
+          Section: utils
+          Priority: optional
+          Architecture: amd64
+          Depends: libc6
+          Maintainer: Feluda Team <feluda@example.com>
+          Description: A CLI tool to check dependency licenses
+           Feluda analyzes project dependencies, notes their licenses,
+           and flags any permissions that restrict personal or commercial usage
+           or are incompatible with your project's license.
+          EOF
+
+          # Build DEB package
+          dpkg-deb --build feluda_${{ github.event.inputs.version || '1.9.8' }}_amd64
+
+          # Move to incoming directory
+          mv feluda_${{ github.event.inputs.version || '1.9.8' }}_amd64.deb incoming/
+
+      - name: Update APT repository
+        run: |
+          cd apt-repo
+          reprepro -V --section utils --component main --priority optional includedeb bionic incoming/feluda_${{ github.event.inputs.version || '1.9.8' }}_amd64.deb
+
+      - name: Commit and push changes
+        run: |
+          cd apt-repo
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Add Feluda v${{ github.event.inputs.version || '1.9.8' }} DEB package"
+          git push

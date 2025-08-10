@@ -1,0 +1,30 @@
+# APT repository generated files
+dists/
+pool/
+db/
+conf/options
+conf/override.*
+
+# Temporary files
+*.tmp
+*.temp
+*.deb
+*.changes
+*.dsc
+
+# GPG files
+*.gpg
+*.asc
+private.key
+
+# Build artifacts
+feluda_*_amd64/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
