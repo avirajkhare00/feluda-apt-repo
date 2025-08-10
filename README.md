@@ -37,13 +37,13 @@ Once the workflow completes, test the installation on a Debian/Ubuntu system usi
 
 ```bash
 # Download and add the GPG key
-curl -fsSL https://raw.githubusercontent.com/avirajkhare00/feluda-apt-repo/main/dists/bionic/Release.gpg | sudo gpg --dearmor -o /usr/share/keyrings/feluda-archive-keyring.gpg
+curl -fsSL https://avirajkhare00.github.io/feluda-apt-repo/dists/bionic/Release.gpg | sudo gpg --dearmor -o /usr/share/keyrings/feluda-archive-keyring.gpg
 ```
 
 **Alternative method** (if the above doesn't work):
 ```bash
 # Import the GPG key directly
-curl -fsSL https://raw.githubusercontent.com/avirajkhare00/feluda-apt-repo/main/dists/bionic/Release.gpg | sudo apt-key add -
+curl -fsSL https://avirajkhare00.github.io/feluda-apt-repo/dists/bionic/Release.gpg | sudo apt-key add -
 ```
 
 **Note**: The GPG key will be available after the first package is built and the repository is initialized.
@@ -57,7 +57,7 @@ If you get "NO_PUBKEY" errors, try these steps:
 
 ```bash
 # Add the repository to your sources
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/feluda-archive-keyring.gpg] https://raw.githubusercontent.com/avirajkhare00/feluda-apt-repo/main bionic main" | sudo tee /etc/apt/sources.list.d/feluda.list
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/feluda-archive-keyring.gpg] https://avirajkhare00.github.io/feluda-apt-repo/ bionic main" | sudo tee /etc/apt/sources.list.d/feluda.list
 ```
 
 ### 3. Update and install
@@ -74,7 +74,8 @@ If you're having issues with GPG keys, you can use the unsigned repository:
 
 ```bash
 # Add the repository without GPG verification
-echo "deb [trusted=yes] https://raw.githubusercontent.com/avirajkhare00/feluda-apt-repo/main bionic main" | sudo tee /etc/apt/sources.list.d/feluda.list
+echo "deb [trusted=yes] https://avirajkhare00.github.io/feluda-apt-repo/ bionic main" | sudo tee /etc/apt/sources.list.d/feluda.list
+```
 
 # Update and install
 sudo apt update
@@ -105,7 +106,8 @@ If you prefer to install manually, you can download the `.deb` package directly:
 
 ```bash
 # Download the latest version
-wget https://raw.githubusercontent.com/avirajkhare00/feluda-apt-repo/main/pool/main/f/feluda/feluda_1.9.8_amd64.deb
+wget https://avirajkhare00.github.io/feluda-apt-repo/pool/main/f/feluda/feluda_1.9.8_amd64.deb
+```
 ```
 
 # Install the package
