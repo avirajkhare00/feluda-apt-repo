@@ -22,7 +22,7 @@ jobs:
       - name: Checkout Feluda source
         uses: actions/checkout@v4
         with:
-          repository: anistark/feluda
+          repository: avirajkhare00/feluda
           path: feluda-source
 
       - name: Setup Rust

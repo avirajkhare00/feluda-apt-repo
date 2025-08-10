@@ -34,7 +34,7 @@ fi
 
 # Test 1: Check if repository URL is accessible
 echo "📡 Testing repository accessibility..."
-REPO_URL="https://raw.githubusercontent.com/anistark/feluda-apt-repo/master"
+REPO_URL="https://raw.githubusercontent.com/avirajkhare00/feluda-apt-repo/master"
 if curl -s --head "$REPO_URL" | head -n 1 | grep "HTTP/1.[01] [23].." > /dev/null; then
     print_status "Repository URL is accessible"
 else
