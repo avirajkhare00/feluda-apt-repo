@@ -132,7 +132,7 @@ Once the workflow completes, test the installation on a Debian/Ubuntu system:
 
 ```bash
 # Add the GPG key
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/feluda-apt-repo/master/Release.gpg | sudo gpg --dearmor -o /usr/share/keyrings/feluda-archive-keyring.gpg
+curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/feluda-apt-repo/master/public-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/feluda-archive-keyring.gpg
 
 # Add the repository
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/feluda-archive-keyring.gpg] https://raw.githubusercontent.com/YOUR_USERNAME/feluda-apt-repo/master bionic main" | sudo tee /etc/apt/sources.list.d/feluda.list
@@ -159,7 +159,7 @@ Feluda is available via APT repository for Debian-based systems:
 
 ```bash
 # Add the GPG key
-curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/feluda-apt-repo/master/Release.gpg | sudo gpg --dearmor -o /usr/share/keyrings/feluda-archive-keyring.gpg
+curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/feluda-apt-repo/master/public-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/feluda-archive-keyring.gpg
 
 # Add the repository
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/feluda-archive-keyring.gpg] https://raw.githubusercontent.com/YOUR_USERNAME/feluda-apt-repo/master bionic main" | sudo tee /etc/apt/sources.list.d/feluda.list

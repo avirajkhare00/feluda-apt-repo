@@ -9,13 +9,13 @@ This repository contains the APT repository for installing Feluda on Debian-base
 **Method A: Import Public Key (Recommended)**
 ```bash
 # Download and import the public GPG key
-curl -fsSL https://avirajkhare00.github.io/feluda-apt-repo/public-gpg.gpg | sudo apt-key add -
+curl -fsSL https://avirajkhare00.github.io/feluda-apt-repo/public-key.gpg | sudo apt-key add -
 ```
 
 **Method B: Use Keyring (More Secure)**
 ```bash
 # Download signature to keyring
-curl -fsSL https://avirajkhare00.github.io/feluda-apt-repo/dists/bionic/Release.gpg | sudo gpg --dearmor -o /usr/share/keyrings/feluda-archive-keyring.gpg
+curl -fsSL https://avirajkhare00.github.io/feluda-apt-repo/public-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/feluda-archive-keyring.gpg
 ```
 
 ### 2. Add the repository
